@@ -1,8 +1,7 @@
 <?php
     require '../action/GetDataDetails.php';
     include '../action/head.php';
-    echo '<input type="hidden" id="tid" name="tid" value="'. $tid. '"></form>
-    </div>';
+
     if(empty($_GET)) {
         header("Location: https://s.awoz.co/class/comp1006/form.html");
     }
@@ -15,6 +14,8 @@
     }
     $getdetails = new GetDataDetails($tid);
     $result = $getdetails->get_record_details();
+    echo '<input type="hidden" id="tid" name="tid" value="'. $tid. '"></form>
+        </div>';
     if(!is_array($result) || count($result) === 0) {
         echo '<div class="container mt-5"><div class="row justify-content-center"><div class="col-md-6"><div class="alert alert-danger text-center" role="alert">
                     NO record found.
